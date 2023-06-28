@@ -1,7 +1,11 @@
-html,
-body {
+* {
   margin: 0;
   padding: 0;
+}
+
+html,
+body,
+#root {
   box-sizing: border-box;
 }
 
@@ -57,7 +61,7 @@ a {
   border: none;
 
   padding: 7px 15px;
-  margin: 10px 0px;
+  margin: 5px 10px;
   border-radius: 20px;
   transition: all 0.3s ease;
 }

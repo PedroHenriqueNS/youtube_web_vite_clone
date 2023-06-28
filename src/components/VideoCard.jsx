@@ -7,7 +7,7 @@ import { demoVideoUrl, demoVideoTitle, demoChannelTitle, demoChannelUrl, demoPro
 const VideoCard = ({ video: { id: { videoId }, snippet }, channelDetail }) => {
 
     return (
-        <Card sx={{ width: { xs: '100%', sm: '358px', md: '320px' }, boxShadow: 'none', borderRadius: 'none', backgroundColor: '#000' }}>
+        <Card sx={{ width: { xs: '100%', sm: '358px', md: '320px' }, boxShadow: 'none', borderRadius: 'none', backgroundColor: '#0f0f0f' }}>
             <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
                 <CardMedia
                     image={snippet?.thumbnails?.high?.url}
@@ -15,7 +15,7 @@ const VideoCard = ({ video: { id: { videoId }, snippet }, channelDetail }) => {
                     sx={{ width: { xs: '100%', sm: '358px', md: '320px' }, height: 180, borderRadius: '15px' }}
                 />
             </Link>
-            <CardContent sx={{ display: 'flex', backgroundColor: '#000', height: '90px', gap: '15px' }}>
+            <CardContent sx={{ display: 'flex', backgroundColor: '#0f0f0f', height: '90px', gap: '15px' }}>
                 <Link to={`/channel/${channelDetail.snippet.channelId}`}>
                     <CardMedia
                         image={channelDetail?.snippet?.thumbnails?.medium?.url || demoProfilePicture}

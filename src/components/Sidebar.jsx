@@ -2,7 +2,7 @@ import { Stack } from '@mui/material'
 
 import { categories } from "../utils/constants.jsx";
 
-const selectedCategory = 'New'
+
 
 const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
     <Stack
@@ -10,7 +10,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
         sx={{
             overflowY: 'auto',
             height: { sx: 'auto', md: '95%' },
-            flexDirection: { md: 'column'},
+            flexDirection: { md: 'column' },
         }}
     >
         {categories.map((category) => (
@@ -23,7 +23,10 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
                     color: 'white'
                 }}
             >
-                <span style={{ color: category.name === selectedCategory ? 'white' : 'red', marginRight: '15px' }}>{category.icon}</span>
+                <span style={{
+                    color: category.name === selectedCategory ? 'white' : 'red',
+                    marginRight: '15px'
+                }}>{category.icon}</span>
                 <span style={{ opacity: category.name === selectedCategory ? '1' : '0.8' }}>{category.name}</span>
             </button>
         ))}

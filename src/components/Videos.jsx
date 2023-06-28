@@ -1,10 +1,13 @@
-import { Stack, Box } from "@mui/material";
+import { Stack, Box, Skeleton, CardMedia, Typography, CardContent } from "@mui/material";
 
-import { VideoCard, ChannelCard } from "./";
+import { VideoCard, ChannelCard, VideoSkeleton } from "./";
+import { Link } from "react-router-dom";
+import { demoChannelTitle, demoChannelUrl, demoProfilePicture, demoVideoTitle, demoVideoUrl } from "../utils/constants.jsx";
+import { CheckCircle } from "@mui/icons-material";
+
+
 
 const Videos = ({ videos, direction = 'row' }) => {
-
-    if (!videos?.length) return "Loading..."
 
     return (
         <Stack
@@ -13,10 +16,13 @@ const Videos = ({ videos, direction = 'row' }) => {
             justifyContent="start"
             gap={2}
         >
-            {videos.map((item, idx) => (
+            {!videos?.length ?
+                <><VideoSkeleton /><VideoSkeleton /><VideoSkeleton /><VideoSkeleton /><VideoSkeleton /><VideoSkeleton /><VideoSkeleton /></>
+                :
+                videos.map((item, idx) => (
                 <Box key={idx}>
-                    {item.id.videoId && <VideoCard video={item} channelDetail={item} />}
-                    {item.id.channelId && <ChannelCard channelDetail={item} />}
+                    {item.id.videoId && <VideoCard video={item} channelDetail={item}/>}
+                    {item.id.channelId && <ChannelCard channelDetail={item}/>}
                 </Box>
             ))}
         </Stack>
